@@ -1,0 +1,29 @@
+# credentials: never commit (.env.example is the only tracked template)
+.env
+.env.*
+.env.test
+.env.personal
+*.env
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/*
+!data/.gitkeep
+logs/
+*.mp4
+*.MP4
+*.mov
+*.MOV
+.DS_Store
+
+# local state, backups, logs and temp files (never commit)
+*.sqlite3
+*.sqlite3-*
+*.sqlite3.bak-*
+*.db
+*.log
+publish.lock
+tmp/
+.claude/

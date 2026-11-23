@@ -1,0 +1,23 @@
+name = "lipsync-upload"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+preview_urls = false
+
+# Not secret. R2_ACCOUNT_ID and R2_BUCKET are filled in after `wrangler login`
+# (see worker/README.md). PUBLIC_BASE_URL must be the public r2.dev address
+# of that same bucket; the Trial Reels publisher fetches videos from it.
+[vars]
+R2_ACCOUNT_ID = "YOUR_CLOUDFLARE_ACCOUNT_ID"
+R2_BUCKET = "trial-reels-test"
+PUBLIC_BASE_URL = "https://pub-example.r2.dev"
+
+# Read-only listing for the publisher's daily batch (GET /list).
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "trial-reels-test"
+
+# Secrets, set with `npx wrangler secret put <NAME>` (never written here):
+#   R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY  - an R2 API token limited to this bucket
+#   UPLOAD_TOKEN                            - the password the iPhone app sends
+#   LIST_TOKEN                              - the publisher's password for GET /list

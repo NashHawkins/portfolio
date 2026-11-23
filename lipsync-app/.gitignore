@@ -1,0 +1,8 @@
+.DS_Store
+xcuserdata/
+build/
+DerivedData/
+*.xcuserstate
+
+# Worker address + upload token built into the app (see worker/README.md)
+LipSync/UploadConfig.json
